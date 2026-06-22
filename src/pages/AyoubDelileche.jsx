@@ -35,12 +35,27 @@ const orangeIcon = L.divIcon({
 const CardOne = () => {
   const position = [36.193923443217955, 5.445426896383672]; // Coordinates for Sétif area
 
-  const downloadVCard = () => {
+  const downloadVCard = async () => {
+    const getBase64Image = async (url) => {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    };
+
+    const photoBase64 = await getBase64Image(profileImg);
+    const base64Data = photoBase64.split(',')[1];
+
     const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:Ayoub Delileche
 ORG:Ayoub Delileche
 TITLE:Ayoub Delileche .
+PHOTO;ENCODING=BASE64;TYPE=JPEG:${base64Data}
 TEL;TYPE=WORK,VOICE:+213774979960
 EMAIL;TYPE=PREF,INTERNET:Delilecheayoub@gmail.com
 URL:

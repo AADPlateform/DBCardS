@@ -34,12 +34,27 @@ const orangeIcon = L.divIcon({
 const CardOne = () => {
   const position = [36.19518164709221, 5.442911930158505]; // Coordinates for Sétif area
 
-  const downloadVCard = () => {
+  const downloadVCard = async () => {
+    const getBase64Image = async (url) => {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    };
+
+    const photoBase64 = await getBase64Image(profileImg);
+    const base64Data = photoBase64.split(',')[1];
+
     const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:AZIZI AXEL
 ORG:Axel Azizi Design
 TITLE:Design & development.
+PHOTO;ENCODING=BASE64;TYPE=JPEG:${base64Data}
 TEL;TYPE=WORK,VOICE:+213556577950 
 TEL;TYPE=WORK,VOICE:+213560001659
 EMAIL;TYPE=PREF,INTERNET:axelazizipro17@gmail.com
