@@ -114,7 +114,7 @@ END:VCARD`;
 
       {/* Name and Title */}
       <div className="text-left w-full mb-10 ">
-        <h1 className="w-full font-extrabold tracking-tight text-black mb-1 text-[clamp(1.6rem,5vw,3rem)] break-words">{PERSON.name.toUpperCase()}</h1>
+        <h1 className="w-full font-extrabold tracking-tight text-black mb-1 text-[clamp(2.1rem,5vw,3rem)] break-words">{PERSON.name.toUpperCase()}</h1>
         <p className="text-xl font-medium text-black">{PERSON.title}</p>
       </div>
 
