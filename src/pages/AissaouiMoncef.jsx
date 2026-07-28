@@ -107,14 +107,14 @@ END:VCARD`;
           <img
             src={PERSON.profileImg}
             alt={PERSON.name}
-            className="   object-cover"
+            className="w-full h-auto object-cover"
           />
         </div>
       </div>
 
       {/* Name and Title */}
       <div className="text-left w-full mb-10 ">
-        <h1 className="w-full font-extrabold tracking-tight text-black mb-1 text-[clamp(2.3rem,5vw,3rem)] whitespace-nowrap ">{PERSON.name.toUpperCase()}</h1>
+        <h1 className="w-full font-extrabold tracking-tight text-black mb-1 text-[clamp(1.6rem,5vw,3rem)] break-words">{PERSON.name.toUpperCase()}</h1>
         <p className="text-xl font-medium text-black">{PERSON.title}</p>
       </div>
 
@@ -122,11 +122,11 @@ END:VCARD`;
       <div className="w-full space-y-6 mb-10">
         <a href={`https://wa.me/${PERSON.phonewhatsapp}`} className="flex items-center gap-5 text-base text-gray-800 hover:text-black transition-colors group">
           <Phone size={22} className="text-black shrink-0 group-hover:scale-110 transition-transform" />
-          <span className="font-medium">Whatsapp: {PERSON.phonewhatsapp}</span>
+          <span className="font-medium break-all">Whatsapp: {PERSON.phonewhatsapp}</span>
         </a>
         <a href={`tel:${PERSON.phone}`} className="flex items-center gap-5 text-base text-gray-800 hover:text-black transition-colors group">
           <Phone size={22} className="text-black shrink-0 group-hover:scale-110 transition-transform" />
-          <span className="font-medium">Appel :{PERSON.phone}</span>
+          <span className="font-medium break-all">Appel :{PERSON.phone}</span>
         </a>
         <a href={`mailto:${PERSON.email}`} className="flex items-center gap-5 text-base text-gray-800 hover:text-black transition-colors group">
           <Mail size={22} className="text-black shrink-0 group-hover:scale-110 transition-transform" />
@@ -218,7 +218,7 @@ END:VCARD`;
       </div>
 
       {/* Subtle Footer */}
-      <footer className="mt-auto pt-8 pb-4 text-[10px] text-gray-400 uppercase tracking-[0.2em] mx-auto">
+      <footer className="mt-auto pt-8 pb-4 text-[10px] text-gray-400 uppercase tracking-[0.2em] mx-auto text-center">
         &copy; 2026 Axel Azizi Design
       </footer>
     </div>
